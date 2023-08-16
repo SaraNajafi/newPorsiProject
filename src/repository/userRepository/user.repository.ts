@@ -22,7 +22,10 @@ export interface createUser{
 
 
 export class UserRepository{
-    public userRepo: Repository<UserEntity>;
+    
+    private userRepo: Repository<UserEntity>;
+
+
     constructor(){
         this.userRepo = AppDataSource.getRepository(UserEntity);
     }
@@ -48,6 +51,11 @@ export class UserRepository{
         return user;
     }
 
+    // public static getUserRepo(){
+    //     //const userre = new UserRepository();
+    //     const myueserrepo= this.userRepo;
+    //     return myueserrepo;
+    // }
 
 
 }

@@ -6,8 +6,9 @@ import { createUser, Role} from "../repository/userRepository/user.repository";
 import { UserDto } from "./user.dto";
 
 //const userRepo = AppDataSource.getRepository(UserEntity);
-export const signup=<T>({username, password}: UserDto, role:Role)=>{
-    if(userRepository.findUserByUsername(username)=== undefined){
+export const signup=async <T>({username, password}: UserDto, role:Role)=>{
+    const user = await userRepository.findUserByUsername(username)
+    if(user === null){
         const createdUser = {username:username, password:password, role:role}
         const myuser= userRepository.addUser(createdUser);
 
