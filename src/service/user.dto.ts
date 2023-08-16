@@ -7,3 +7,4 @@ const UserDto = z.object({
 })
 
 export type UserDto = z.infer<typeof UserDto>;
+

@@ -6,6 +6,11 @@ import { UserEntity } from "./entity/user.entity";
 
 export type Role = "Admin" | "Representator" | "Normal";
 
+export function isValidRole(role: Role): role is Role{ //in jash kojas?
+    return ["Admin", "Representator", "Normal"].includes(role);
+}
+
+
 export interface User{
     id: string;
     username: string;
@@ -18,6 +23,7 @@ export interface createUser{
     password: string;
     role: Role;
 }
+
 
 
 
@@ -46,8 +52,9 @@ export class UserRepository{
         return user;
     }
 
-    public findUserByUsername(username: string): Promise<User | null> {
+    public async findUserByUsername(username: string): Promise<User | null> {
         const user = this.userRepo.findOneBy({username})
+        //this.userRepo.save(user as User);
         return user;
     }
 
