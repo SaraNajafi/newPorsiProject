@@ -7,7 +7,7 @@
     "dev": "ts-node src/routes/api.ts"
   },
   "dependencies": {
-    "mysql": "^2.18.1",
+    "mysql2": "^3.6.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.17",
     "uuid": "^9.0.0",
